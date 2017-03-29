@@ -243,7 +243,7 @@ ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp3s0}${color5}${goto 1
 #Replace wlp4s0 with your internet adapter
 ${else}
 ${if_existing /proc/net/route wlp4s0}
-${voffset -217}${goto 40}${color5}Up: ${color2}${upspeed wlp4s0}${color5}${goto 150}Down: ${color2}${downspeed wlp3s0}
+${voffset -217}${goto 40}${color5}Up: ${color2}${upspeed wlp4s0}${color5}${goto 150}Down: ${color2}${downspeed wlp4s0}
 ${voffset 10}${goto 40}${upspeedgraph wlp4s0 26,80 00AA00 FF0000 -t}\
 ${goto 150}${downspeedgraph wlp4s0 26,80 00AA00 FF0000 -t}
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp3s0}${color5}${goto 150}Received: ${color2}${totaldown wlp4s0}
