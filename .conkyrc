@@ -196,10 +196,10 @@ ${voffset 294}${goto 40}${color2}Cpu:${color}
 ${voffset 4}${goto 40}${color2}Mem:${color}
 ${voffset 4}${goto 40}${color2}Uptime:${color}
 ${voffset -47}${alignr 39}${color2}${cpu cpu0}%${color}
-${voffset 4}${alignr 39}${color2}${memperc}%${color}
+${voffset 4}${alignr 39}${execpi 5 ~/themes/conky/harmattanClear/.harmattan-assets/scripts/memColor.sh}${memperc}%${color}
 ${voffset 4}${alignr 39}${color2}${uptime_short}${color}
 ${voffset -47}${alignc}${color2}${cpubar 6, 80}${color}
-${voffset 4}${alignc}${color2}${membar 6, 80}${color}
+${voffset 4}${alignc}${execpi 5 ~/themes/conky/harmattanClear/.harmattan-assets/scripts/memColor.sh}${membar 6, 80}${color}
 ${voffset 29}${goto 40}${loadgraph 26,190 00AA00 FF0000 -tl}
 \
 \
