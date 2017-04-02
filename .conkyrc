@@ -229,15 +229,25 @@ ${voffset -13}${alignr 39}${color1}Mem${color}
 ######################
 \
 \
-#Replace wlp4s0 with your internet adapter
+#Replace wlp3s0 with your internet adapter
+${if_existing /proc/net/route wlp3s0}
+${voffset -227}${goto 40}${color5}Up: ${color2}${upspeed wlp3s0}${color5}${goto 150}Down: ${color2}${downspeed wlp3s0}
+${voffset 10}${goto 40}${upspeedgraph wlp3s0 26,80 00AA00 FF0000 -t}${goto 150}${downspeedgraph wlp3s0 26,80 00AA00 FF0000 -t}
+${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp3s0}${color5}${goto 150}Received: ${color2}${totaldown wlp3s0}
+${else}
 ${if_existing /proc/net/route wlp4s0}
 ${voffset -227}${goto 40}${color5}Up: ${color2}${upspeed wlp4s0}${color5}${goto 150}Down: ${color2}${downspeed wlp4s0}
 ${voffset 10}${goto 40}${upspeedgraph wlp4s0 26,80 00AA00 FF0000 -t}${goto 150}${downspeedgraph wlp4s0 26,80 00AA00 FF0000 -t}
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp4s0}${color5}${goto 150}Received: ${color2}${totaldown wlp4s0}
 ${else}
+${if_existing /proc/net/route wlo1}
+${voffset -227}${goto 40}${color5}Up: ${color2}${upspeed wlo1}${color5}${goto 150}Down: ${color2}${downspeed wlo1}
+${voffset 10}${goto 40}${upspeedgraph wlo1 26,80 00AA00 FF0000 -t}${goto 150}${downspeedgraph wlo1 26,80 00AA00 FF0000 -t}
+${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlo1}${color5}${goto 150}Received: ${color2}${totaldown wlo1}
+${else}
 ${voffset -311}${goto 40}${color5}Network disconnected${color}
 ${image ~/themes/conky/harmattanClear/.harmattan-assets/misc/Transparent/God-Mode/offline.png -p 44,284 -s 16x16}
-${endif}
+${endif}${endif}${endif}
 ${voffset 225}${goto 40}${color5}Therm1${color}
 ${voffset -13}${alignc}${color9}${execi 30 ~/themes/conky/harmattanClear/.harmattan-assets/scripts/cpuTemp.sh | awk '{print $1}'}°C${color}
 ${voffset 4}${goto 40}${color5}Therm2${color}
